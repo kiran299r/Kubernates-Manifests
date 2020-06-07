@@ -14,9 +14,9 @@ spec:
         name: mongo
     spec:
       volumes:
-      - name: nfs-volume
+      - name: ebspvc
         persistentVolumeClaim:
-          claimName: pvc-nfs-pv1      
+          claimName: ebspvc-mongo      
       containers:
       - image: mongo
         name: mongo
@@ -25,7 +25,7 @@ spec:
           containerPort: 27017
           hostPort: 27017
         volumeMounts:
-        - name: nfs-volume
+        - name: ebspvc
           mountPath: /data/db
 ...
 ---
